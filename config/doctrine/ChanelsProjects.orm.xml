@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\ChanelsProjects" table="chanels_projects">
+    <indexes>
+      <index name="chanel_projects_userid" columns="user_id"/>
+      <index name="Chanel_projects_projectId" columns="project_id"/>
+    </indexes>
+    <id name="chanelId" type="integer" column="chanel_id"/>
+    <id name="project" association-key="true"/>
+    <id name="user" association-key="true"/>
+    <field name="name" type="text" column="name" length="65535" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="description" type="integer" column="description" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="link" type="string" column="link" length="255" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="createdate" type="datetime" column="createDate" nullable="false"/>
+    <one-to-one field="project" target-entity="Projects" fetch="LAZY">
+      <join-columns>
+        <join-column name="project_id" referenced-column-name="project_id"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="user" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="user_id" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>
