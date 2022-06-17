@@ -1,19 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{% block title %}Музикална работилница{% endblock %}</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">  <!-- Favicons -->
+        <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+        <link href="{{ asset('assets/img/favicon.png') }}assets/img/apple-touch-icon.png" rel="apple-touch-icon">  <!-- Google Fonts -->
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+       {% block stylesheets %}
+           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+                 rel="stylesheet">  <!-- Vendor CSS Files -->
+           <link href="{{ asset("assets/vendor/aos/aos.css") }}" rel="stylesheet">
+           <link href="{{ asset("assets/vendor/bootstrap/css/bootstrap.min.css") }}" rel="stylesheet">
+           <link href="{{ asset("assets/vendor/bootstrap-icons/bootstrap-icons.css") }}" rel="stylesheet">
+           <link href="{{ asset("assets/vendor/glightbox/css/glightbox.min.css") }}" rel="stylesheet">
+           <link href="{{ asset("assets/vendor/swiper/swiper-bundle.min.css") }}" rel="stylesheet">  <!-- Template Main CSS File -->
+           <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header id="header" class="d-flex align-items-center ">
+            <div class="container-fluid container-xxl d-flex align-items-center">
+                <div id="logo" class="me-auto">        <!-- Uncomment below if you prefer to use a text logo --> <a
+                            href="{{ path("home") }}" class="scrollto"><img src="assets/img/logo.png" alt="" title=""> Музикална работилница</a>
+                    <!--<h6><a href="index.html">Музикална<span>Работилница</span></a></h6> -->      </div>
+                <nav id="navbar" class="navbar order-last order-lg-0">
+                    <ul>
+                        <li><a class="nav-link scrollto active" href="#hero">Начало</a></li>
+                        <li><a class="nav-link scrollto" href="#speakers">Участници</a></li>
+                        <li><a class="nav-link scrollto" href="#schedule">Завършени проекти</a></li>
+                        <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>          <ul>            <li><a href="#">Drop Down 1</a></li>            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>              <ul>                <li><a href="#">Deep Drop Down 1</a></li>                <li><a href="#">Deep Drop Down 2</a></li>                <li><a href="#">Deep Drop Down 3</a></li>                <li><a href="#">Deep Drop Down 4</a></li>                <li><a href="#">Deep Drop Down 5</a></li>              </ul>            </li>            <li><a href="#">Drop Down 2</a></li>            <li><a href="#">Drop Down 3</a></li>            <li><a href="#">Drop Down 4</a></li>          </ul>        </li> -->
+                        <li><a class="nav-link scrollto" href="#contact">Контакти</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i></nav><!-- .navbar --> <a class="buy-tickets scrollto"
+                                                                                          href="{{ path("login") }}">Вход</a></div>
+        </header><!-- End Header -->  <!-- ======= Hero Section ======= -->
+        <section id="hero">
+            <div class="hero-container" data-aos="zoom-in" data-aos-delay="100"><h1 class="mb-4 pb-0">Музикална<br><span>работилница</span>
+                </h1>
+                <p class="mb-4 pb-0">Живеем във времена на все по голямо значение на онлайн дейностите.</p>
+                <p class="mb-4 pb-0">Тази платформа дава възможност на български и чуждестранни музиканти, да обменят музикални
+                    идеи и да създават уникални музикални произведения онлайн. Тук е място за среща на музиканти с различни
+                    музикални, етнически и фолклорни умения.</p>      <a href="#about" class="about-btn scrollto">Регистрирай се
+                    за да участваш</a></div>
+        </section><!-- End Hero Section -->
+        <main id="main">
+            {% block body %}{% endblock %}
+        </main>
+        {% block javascripts %}
+            <script src="{{ asset("assets/vendor/aos/aos.js") }}"></script>
+            <script src="{{ asset("assets/vendor/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
+            <script src="{{ asset("assets/vendor/glightbox/js/glightbox.min.js") }}"></script>
+            <script src="{{ asset("assets/vendor/swiper/swiper-bundle.min.js") }}"></script>
+            <script src="{{ asset("assets/vendor/php-email-form/validate.js") }}"></script>  <!-- Template Main JS File -->
+            <script src="{{ asset("assets/js/main.js") }}"></script>
+        {% endblock %}
     </body>
 </html>
