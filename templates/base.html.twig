@@ -37,6 +37,7 @@
                     <i class="bi bi-list mobile-nav-toggle"></i></nav><!-- .navbar --> <a class="buy-tickets scrollto"
                                                                                           href="{{ path("login") }}">Вход</a></div>
         </header><!-- End Header -->  <!-- ======= Hero Section ======= -->
+       {% if isHome is defined %}
         <section id="hero">
             <div class="hero-container" data-aos="zoom-in" data-aos-delay="100"><h1 class="mb-4 pb-0">Музикална<br><span>работилница</span>
                 </h1>
@@ -46,6 +47,7 @@
                     музикални, етнически и фолклорни умения.</p>      <a href="#about" class="about-btn scrollto">Регистрирай се
                     за да участваш</a></div>
         </section><!-- End Hero Section -->
+        {% endif %}
         <main id="main">
             {% block body %}{% endblock %}
         </main>
