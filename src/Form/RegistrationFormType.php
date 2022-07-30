@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,6 +30,9 @@ class RegistrationFormType extends AbstractType
             ->add("mywork3Youtube")
             ->add("mywork4Youtube")
             ->add("mywork5Youtube")
+            ->add("is_verified", HiddenType::class,[
+                "data" => 0
+            ])
             ->add('image', FileType::class, [
                 'label' => 'Aватар',
 
